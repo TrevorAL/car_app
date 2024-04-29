@@ -132,3 +132,8 @@ h1 strong {
   background-color: #4fb958;
   border-color: #1e7e34;
 }
+
+.small-image {
+  width: 80px;
+  height: 80px;
+}
