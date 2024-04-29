@@ -13,16 +13,14 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img src="{% static 'images/ecocar.png' %}" class="img-responsive logo mb-1 mt-1" />
-        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="{% url 'home' %}?clear=true" class="nav-link">Home</a>
+                    <a href="{% url 'home' %}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
             </ul>
-        </div>
     </nav>
     <div class="row justify-content-center mt-5 mb-5">
         <div class="col-md-10 caloriescont shadow rounded">
@@ -61,7 +59,7 @@
                                             {% if co2_per_mile < 250 %}
                                             a good amount for a car!
                                             {% elif co2_per_mile < 400 %}
-                                                an average amount for a car.
+                                                an average amount fo a car.
                                             {% else %}
                                                 a bad amount for a car.
                                             {% endif %}
