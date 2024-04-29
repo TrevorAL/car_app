@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}{%load mathfilters %}{%load humanize%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link href="{% static 'styles.css' %}" rel="stylesheet" type="text/css" />
+    <title>Home Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="{% static 'images/ecocar.png' %}" class="img-responsive logo mb-1 mt-1" />
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="{% url 'home' %}?clear=true" class="nav-link">Home</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                {% if error %}
+                    <div class="alert alert-warning">{{ error }}</div>
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-group input-group-lg mb-3">
+                        <input type="text" name="make" class="form-control inputstyle" placeholder="Enter car make (e.g., Toyota)" required>
+                    </div>
+                    <div class="input-group input-group-lg mb-3">
+                        <input type="text" name="model" class="form-control inputstyle" placeholder="Enter car model (e.g., Camry)" required>
+                    </div>
+                    <div class="input-group input-group-lg mb-5">
+                        <input type="number" name="year" class="form-control inputstyle" placeholder="Enter car year (e.g., 2020)" required>
+                        <button class="btn whoop" type="submit">Find Car Info</button>
+                    </div>
+                </form>
+                {% if cars %}
+                    {% if cars|stringformat:"s" == "Oops! There was an error" or cars|stringformat:"s" == "No cars found for the specified make and model." %}
+                        <div class="alert alert-warning">{{ cars }}</div>
+                    {% else %}
+                        <h1>Car Details Found:</h1>
+                        {% for car in cars %}
+                        <a href="{% url 'car_detail' car.make car.model|urlencode car.year %}" class="text-decoration-none">
+                            <div class="card mt-3" style="cursor:pointer;">
+                                <div class="card-body shadow rounded">
+                                    <h5 class="card-title">{{ car.make }} {{ car.model }} - {{ car.year }}</h5>
+                                    <p class="card-text">
+                                        Fuel Type: {{ car.fuel_type }}<br>
+                                        Transmission: {% if car.transmission == 'a' %}Automatic{% elif car.transmission == 'm' %}Manual{% else %}{{ car.transmission|default:"Not Available" }}{% endif %}<br>
+                                        Drive: {{ car.drive }}<br>
+                                        Cylinders: {{ car.cylinders }}<br>
+                                        City MPG: {{ car.city_mpg }}<br>
+                                        Highway MPG: {{ car.highway_mpg }}<br>
+                                        Combined MPG: {{ car.combination_mpg }}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
