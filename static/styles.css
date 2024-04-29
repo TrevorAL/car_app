@@ -1,63 +1,134 @@
 body {
-    background-color: #f6fbf4;
-  }
-  
-  .logo {
-    width: 13em;
-    height: 63px;
-  }
-  
-  h1 {
-    font-weight: 300;
-  }
-  
-  h1 strong {
-    font-weight: 600;
-    color: #000000;
-  }
-  
-  .inputstyle {
-    padding: 20px !important;
-  }
-  
-  .whoop {
-    background-color: #5fd068;
-    width: 8em;
-    font-size: 30px !important;
-    color: #ffffff;
-  }
-  
-  .caloriescont {
-    background-color: #ffffff;
-    padding: 30px;
-  }
-  
-  .caloriescont ul {
-    padding: 0px;
-  }
-  
-  .caloriescont ul li {
-    list-style: none;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #efefef;
-    width: 80%;
-  }
-  
-  .caloriescont h3 {
-    color: #000000;
-    font-size: 2em;
-    text-transform: capitalize;
-    font-weight: 700;
-  }
-  
-  .caloriescont h5 {
-    color: #000000;
-  }
-  
-  .servingsize {
-    background-color: #000000;
-    padding: 10px;
-    color: #ffffff;
-  }
+  background-color: #e0ecdc;
+  max-width: 100%;
+}
 
-  
+.logo {
+  width: 63px;
+  /* height: 63px; */
+  margin: 0 10px
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h1 strong {
+  font-weight: 600;
+  color: #4b8673;
+}
+
+.inputstyle {
+  padding: 20px !important;
+}
+
+.whoop {
+  background-color: #5fd068;
+  width: 8em;
+  font-size: 30px !important;
+  color: #ffffff;
+}
+
+.caloriescont {
+  background-color: #ffffff;
+  padding: 30px;
+}
+
+.caloriescont ul {
+  padding: 0px;
+}
+
+.caloriescont ul li {
+  list-style: none;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #efefef;
+  width: 80%;
+}
+
+.caloriescont h3 {
+  color: #4b8673;
+  font-size: 2em;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.caloriescont h5 {
+  color: #4B8671;
+}
+
+.servingsize {
+  background-color: #000000;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.nav-item.active .nav-link {
+  font-weight: bold; /* Make the font bold */
+}
+
+.co2-emissions {
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Aligns items vertically in the center */
+  margin-top: 0px; /* Adds a bit of margin on top for spacing */
+  margin-bottom: 10px; /* Adds a bit of margin at the bottom for spacing */
+}
+
+.co2-value, .emoji {
+  margin: 0 10px; /* Adds 10px margin to both sides of each element */
+  font-size: 16px; /* Sets a standard font size for the text */
+}
+.co2-value2 {
+  margin: 0 10px; /* Adds 10px margin to both sides of each element */
+  font-size: 16px; /* Sets a standard font size for the text */
+  text-align: center;
+}
+.emoji {
+  font-size: 24px; /* Larger emoji size for better visibility */
+}
+
+.car-details li {
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.car-details li:nth-last-child(-n+2) {
+  border-bottom: none;  /* Removes the border from the last two list items */
+}
+
+.navbar {
+  padding-top: 1rem;  /* Adds top padding to the navbar */
+  padding-bottom: 1rem;  /* Adds bottom padding to the navbar */
+}
+
+.container {
+  margin-top: 40px;  /* Increases the top margin to push it down from the navbar */
+  padding: 15px;  /* Adds padding inside the container for spacing around the edges */
+}
+
+.text-details {
+  display: block; /* Makes the text appear on a new line */
+  color: #6c757d; /* Bootstrap's default for muted text, adjust as needed for lighter gray */
+  font-size: smaller; /* Makes the text smaller than the surrounding text */
+}
+
+.card {
+  border: none;  /* Removes the border */
+}
+
+.card-footer {
+  border: none;  /* Removes the border from the footer */
+  background-color: transparent;
+}
+
+.btn-green {
+  background-color: #5fd068;
+  border-color: #5fd068;
+  color: white;
+}
+
+.btn-green:hover {
+  background-color: #4fb958;
+  border-color: #1e7e34;
+}
