@@ -42,11 +42,6 @@ def home(request):
     else:
         # Clearing the session data when accessing the home page through a GET request
         context['cars'] = request.session.get('cars', None)
-
-        # if 'cars' in request.session:
-        #     del request.session['cars']
-        # context['cars'] = None
-
     return render(request, "home.html", context)
 
 
